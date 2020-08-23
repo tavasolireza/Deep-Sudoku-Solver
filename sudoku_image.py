@@ -52,7 +52,7 @@ def detect_digits(cell):
     h, w = thresh.shape
     filled_percent = cv2.countNonZero(mask) / float(w * h)
 
-    if filled_percent < 0.025:
+    if filled_percent < 0.03:
         return None
 
     digit = cv2.bitwise_and(thresh, thresh, mask=mask)
