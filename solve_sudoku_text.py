@@ -17,9 +17,10 @@ peers = dict((s, set(sum(units[s], [])) - {s}) for s in boxes)
 
 def display(sudoku_values):
     width = 1 + max(len(sudoku_values[s]) for s in boxes)
-    line = '+'.join(['-' * (width * 3)] * 3)
+    line = '+'.join(['-' * (width * 3) + '-'] * 3)
     for r in rows:
-        print(''.join(sudoku_values[r + c].center(width) + ('|' if (c == '3' or c == '6') else '') for c in cols))
+        print(' ', end='')
+        print(''.join(sudoku_values[r + c].center(width) + ('| ' if (c == '3' or c == '6') else '') for c in cols))
         if r == 'C' or r == 'F':
             print(line)
     return
